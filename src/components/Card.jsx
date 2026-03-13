@@ -1,8 +1,15 @@
 import { useState , useEffect } from "react";
+import backSrc from '../assets/back.jpg';
+
+console.log(backSrc);
+
 
 function Test() {
-
   const [imgSrc, setImgSrc] = useState(null);
+  const [turned, setTurned] = useState(false);
+
+  console.log(turned);
+  
 
   useEffect(() => {
 
@@ -10,7 +17,7 @@ function Test() {
 
       try {        
 
-        const response = await fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Toon%20Kingdom`);
+        const response = await fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Spright%20Blue`);
         const cardData = await response.json();
         console.log(cardData.data[0].card_images[0].image_url);
         setImgSrc(cardData.data[0].card_images[0].image_url);
@@ -27,9 +34,7 @@ function Test() {
 
   return (
       <div>
-          <p>TESTINGGGG</p>
-          <p>My result is: {}!!!</p>
-          <img src={imgSrc} height='400px'></img>
+          <img src={turned ? backSrc : imgSrc} height='400px' onClick={() => setTurned(!turned)}></img>
       </div>
   )
 
