@@ -1,7 +1,7 @@
 import { useState , useEffect } from "react";
 import backSrc from '../assets/back.jpg';
 
-function Card() {
+function Card({ name }) {
   const [imgSrc, setImgSrc] = useState(null);
   const [turned, setTurned] = useState(false);  
 
@@ -11,7 +11,7 @@ function Card() {
 
       try {        
 
-        const response = await fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Spright%20Blue`);
+        const response = await fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${name}`);
         const cardData = await response.json();
         // console.log(cardData.data[0].card_images[0].image_url);
         setImgSrc(cardData.data[0].card_images[0].image_url);
