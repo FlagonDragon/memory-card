@@ -30,6 +30,8 @@ function Card({ id, name, turned, handleClick }) {
 
   }, [name])
 
+ 
+
   return (
       <div>
           <img src={turned ? backSrc : imgSrc} height='400px' width='274.42px' onClick={onClick}></img>
