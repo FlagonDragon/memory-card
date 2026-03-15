@@ -5,7 +5,7 @@ function Card({ id, name, turned, handleClick }) {
   const [imgSrc, setImgSrc] = useState(null);
 
   function onClick() {
-    handleClick()
+    handleClick(id)
     console.log(id);
   }
 
@@ -28,7 +28,7 @@ function Card({ id, name, turned, handleClick }) {
 
     getCards();
 
-  }, [])
+  }, [name])
 
   return (
       <div>

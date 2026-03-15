@@ -10,13 +10,14 @@ StartingDeck = [{name: 'Spright%20Blue', turned: true, pair: 'a'}, {name: 'Sprig
 shuffleArray(StartingDeck);
 
 function Mat() {
-    const [points, setPoints] = useState(0);
-    const [turned, setTurned] = useState(true);  
+    const [points, setPoints] = useState(0); 
     const [deck, setDeck] = useState(StartingDeck);  
 
-    function handleClick() {
+    function handleClick(id) {
         setPoints(points + 1)
-        setTurned(!turned);
+        let newDeck = deck.slice();
+        newDeck[id].turned = !newDeck[id].turned
+        setDeck(newDeck);
     }
 
     return (
