@@ -1,9 +1,13 @@
 import { useState , useEffect } from "react";
 import backSrc from '../assets/back.jpg';
 
-function Card({ name }) {
+function Card({ id, name, turned, handleClick }) {
   const [imgSrc, setImgSrc] = useState(null);
-  const [turned, setTurned] = useState(false);  
+
+  function onClick() {
+    handleClick()
+    console.log(id);
+  }
 
   useEffect(() => {
 
@@ -28,7 +32,7 @@ function Card({ name }) {
 
   return (
       <div>
-          <img src={turned ? backSrc : imgSrc} height='400px' width='274.42px' onClick={() => setTurned(!turned)}></img>
+          <img src={turned ? backSrc : imgSrc} height='400px' width='274.42px' onClick={onClick}></img>
       </div>
   )
 
