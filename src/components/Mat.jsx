@@ -34,16 +34,20 @@ function Mat() {
         }
 
         setMatStyle ({
-            border: '5px solid green',
+            border: '5px solid red',
             pointerEvents: 'none'
         })
 
-        setTimeout(changeStyle, 3000);
+        setTimeout(() => {afterClick(id)}, 2000);
 
     }
 
-    function changeStyle() {
+    function afterClick(id) {
         setMatStyle ({border: '5px solid blue'})
+        
+        let newDeck = deck.slice();
+        newDeck[id].turned = !newDeck[id].turned
+        setDeck(newDeck);
     }
 
     return (
