@@ -13,11 +13,22 @@ function Mat() {
     const [points, setPoints] = useState(0); 
     const [deck, setDeck] = useState(StartingDeck);  
 
+   
+
     function handleClick(id) {
-        setPoints(points + 1)
         let newDeck = deck.slice();
         newDeck[id].turned = !newDeck[id].turned
         setDeck(newDeck);
+
+        function findPair(card) {
+            // console.log(card)
+            return (card != newDeck[id] && card.name == newDeck[id].name && card.turned == false);
+            // card.turned == false && card.pair == newDeck[id].pair && 
+        }
+
+        if (newDeck.find(findPair) != undefined) {
+            setPoints(points + 1)
+        }
     }
 
     return (
