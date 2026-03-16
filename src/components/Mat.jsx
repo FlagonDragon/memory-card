@@ -8,6 +8,10 @@ let StartingMatStyle = {border: '5px solid blue'};
 
 let StartingDeck = ['Spright%20Blue', 'Spright%20Blue', 'Toon%20Kingdom', 'Toon%20Kingdom', 'Dark%20Magician', 'Dark%20Magician'];
 
+let stage = 1;
+let activeId;
+
+
 StartingDeck = [{name: 'Spright%20Blue', turned: true, pair: 'a'}, {name: 'Spright%20Blue', turned: true, pair: 'a'}, {name: 'Toon%20Kingdom', turned: true, pair: 'b'}, {name: 'Toon%20Kingdom', turned: true, pair: 'b'}, {name: 'Dark%20Magician', turned: true, pair: 'c'}, {name: 'Dark%20Magician', turned: true, pair: 'c'}];
 
 shuffleArray(StartingDeck);
@@ -38,16 +42,33 @@ function Mat() {
             pointerEvents: 'none'
         })
 
-        setTimeout(() => {afterClick(id)}, 2000);
+        setTimeout(() => {afterClick(id)}, stage == 1 ? 0 : 2000);
 
     }
 
     function afterClick(id) {
+
         setMatStyle ({border: '5px solid blue'})
         
-        let newDeck = deck.slice();
-        newDeck[id].turned = !newDeck[id].turned
-        setDeck(newDeck);
+        if (stage == 2) {
+
+            let newDeck = deck.slice();
+
+            if (newDeck[id].name != newDeck[activeId].name) {
+
+                newDeck[id].turned = !newDeck[id].turned
+                newDeck[activeId].turned = !newDeck[activeId].turned
+                setDeck(newDeck);
+
+            }
+            
+            stage = 1;
+
+        } else if (stage == 1) {
+            activeId = id
+            stage = 2;            
+        }
+
     }
 
     return (
