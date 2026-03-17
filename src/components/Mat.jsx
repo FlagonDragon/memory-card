@@ -12,7 +12,7 @@ let stage = 1;
 let activeId;
 
 
-StartingDeck = [{name: 'Spright%20Blue', turned: true, pair: 'a'}, {name: 'Spright%20Blue', turned: true, pair: 'a'}, {name: 'Toon%20Kingdom', turned: true, pair: 'b'}, {name: 'Toon%20Kingdom', turned: true, pair: 'b'}, {name: 'Dark%20Magician', turned: true, pair: 'c'}, {name: 'Dark%20Magician', turned: true, pair: 'c'}];
+StartingDeck = [{name: 'Spright%20Blue', turned: true, solved: false, pair: 'a', }, {name: 'Spright%20Blue', turned: true, solved: false, pair: 'a'}, {name: 'Toon%20Kingdom', turned: true, solved: false, pair: 'b'}, {name: 'Toon%20Kingdom', turned: true, solved: false, pair: 'b'}, {name: 'Dark%20Magician', turned: true, solved: false, pair: 'c'}, {name: 'Dark%20Magician', turned: true, solved: false, pair: 'c'}];
 
 shuffleArray(StartingDeck);
 
@@ -21,7 +21,19 @@ function Mat() {
     const [matStyle, setMatStyle] = useState(StartingMatStyle);
     const [deck, setDeck] = useState(StartingDeck); 
 
-   
+   function restart() {
+
+        let newDeck = deck.slice();
+        newDeck.forEach(card => {
+            card.turned = true;
+            card.solved = false;
+        });
+        shuffleArray(newDeck);
+
+        setDeck(newDeck);
+        setPoints(0);
+
+   }
 
     function handleClick(id) {
 
@@ -60,6 +72,9 @@ function Mat() {
                 newDeck[activeId].turned = !newDeck[activeId].turned
                 setDeck(newDeck);
 
+            } else {
+                newDeck[id].solved = true;
+                newDeck[activeId].solved = true;
             }
             
             stage = 1;
@@ -73,10 +88,11 @@ function Mat() {
 
     return (
     <>
+        <button className="restartBtn" onClick={restart}>Restart</button>
         <div className="pointsDiv">Points: {points}</div>
         <div className='Mat' style={matStyle}>
             {deck.map((card, index) => {
-                return <Card key={index} id={index} name={card.name} turned={card.turned} handleClick={handleClick} ></Card>
+                return <Card key={index} id={index} name={card.name} turned={card.turned} solved={card.solved} handleClick={handleClick} ></Card>
             })}
         </div>
     </>

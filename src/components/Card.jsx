@@ -1,7 +1,7 @@
 import { useState , useEffect } from "react";
 import backSrc from '../assets/back.jpg';
 
-function Card({ id, name, turned, handleClick }) {
+function Card({ id, name, turned, solved, handleClick }) {
   const [imgSrc, setImgSrc] = useState(null);
 
   function onClick() {
@@ -30,10 +30,13 @@ function Card({ id, name, turned, handleClick }) {
 
   }, [name])
 
- 
+  let cardStyle = {}
+  let solvedStyle = {
+    pointerEvents: 'none'
+  }
 
   return (
-      <div>
+      <div style={solved ? solvedStyle : cardStyle}>
           <img src={turned ? backSrc : imgSrc} height='400px' width='274.42px' onClick={onClick}></img>
       </div>
   )
