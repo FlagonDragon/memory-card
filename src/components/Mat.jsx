@@ -11,7 +11,8 @@ let StartingDeck = ['Spright%20Blue', 'Spright%20Blue', 'Toon%20Kingdom', 'Toon%
 let stage = 1;
 let activeId;
 
-StartingDeck = [{name: 'Spright%20Blue', turned: true, solved: false, pair: 'a', }, {name: 'Spright%20Blue', turned: true, solved: false, pair: 'a'}, {name: 'Toon%20Kingdom', turned: true, solved: false, pair: 'b'}, {name: 'Toon%20Kingdom', turned: true, solved: false, pair: 'b'}, {name: 'Dark%20Magician', turned: true, solved: false, pair: 'c'}, {name: 'Dark%20Magician', turned: true, solved: false, pair: 'c'}];
+StartingDeck = [{name: 'Spright%20Blue', turned: true, solved: false}, {name: 'Spright%20Blue', turned: true, solved: false}, {name: 'Toon%20Kingdom', turned: true, solved: false}, {name: 'Toon%20Kingdom', turned: true, solved: false}, {name: 'Gem-Knight%20Master%20Diamond', turned: true, solved: false}, {name: 'Gem-Knight%20Master%20Diamond', turned: true, solved: false}, {name: 'Ukiyoe-P.U.N.K.%20Amazing%20Dragon', turned: true, solved: false}, {name: 'Ukiyoe-P.U.N.K.%20Amazing%20Dragon', turned: true, solved: false}, {name: 'Kashtira%20Arise-Heart', turned: true, solved: false}, {name: 'Kashtira%20Arise-Heart', turned: true, solved: false}, {name: 'Eldlich%20the%20Golden%20Lord', turned: true, solved: false}, {name: 'Eldlich%20the%20Golden%20Lord', turned: true, solved: false}];
+// knightmare unicorn?
 
 shuffleArray(StartingDeck);
 

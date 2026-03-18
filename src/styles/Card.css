@@ -2,6 +2,7 @@
   width: 274.42px;
   height: 400px;
   perspective: 1000px; 
+  margin: 20px;
 }
 
 .innerDiv {

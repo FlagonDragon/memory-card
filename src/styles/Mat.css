@@ -5,8 +5,7 @@
 .Mat {
     display: flex;
     flex-direction: row;
-    min-width: 850px;
-    max-width: 1000px;
+    width: 1500px;
     flex-wrap: wrap;
     /* border: 5px solid red; */
 }
