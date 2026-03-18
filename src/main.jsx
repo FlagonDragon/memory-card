@@ -7,6 +7,6 @@ import Mat from './components/Mat.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <FlipCard />
+    <Mat />
   </StrictMode>,
 )

@@ -1,5 +1,6 @@
 import { useState , useEffect } from "react";
 import backSrc from '../assets/back.jpg';
+import '../styles/Card.css'
 
 function Card({ id, name, turned, solved, handleClick }) {
   const [imgSrc, setImgSrc] = useState(null);
@@ -36,11 +37,25 @@ function Card({ id, name, turned, solved, handleClick }) {
   }
 
   return (
-      <div style={solved ? solvedStyle : cardStyle}>
-          <img src={turned ? backSrc : imgSrc} height='400px' width='274.42px' onClick={onClick}></img>
+    <div  className="cardDiv">
+
+      <div style={solved ? solvedStyle : cardStyle} className={turned ? "innerDiv" : "innerDiv cardTurned"}>
+
+        <div className="cardFront">
+          <img src={imgSrc} height='400px' width='274.42px' onClick={onClick}></img>
+        </div>
+
+        <div className="cardBack">
+          <img src={backSrc} height='400px' width='274.42px' onClick={onClick}></img>
+        </div>
+
       </div>
+
+    </div>
   )
 
 }
+
+{/* <img src={turned ? backSrc : imgSrc} height='400px' width='274.42px' onClick={onClick}></img> */}
 
 export default Card;
