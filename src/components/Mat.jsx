@@ -23,18 +23,26 @@ function Mat() {
 
     if (score > bestScore) setBestScore(score);
 
-    function restart() {
+    function restartLogic() {
+
+        stage = 1;
 
         let newDeck = deck.slice();
         newDeck.forEach(card => {
             card.turned = true;
             card.solved = false;
         });
-        shuffleArray(newDeck);
+        // shuffleArray(newDeck);
 
-        setDeck(newDeck);
         setScore(0);
+        setDeck(newDeck);
 
+    }
+
+    function restartImgs() {
+        let newDeck = deck.slice();
+        shuffleArray(newDeck);
+        setDeck(newDeck);
     }
 
     function handleClick(id) {
@@ -90,7 +98,10 @@ function Mat() {
 
     return (
     <>
-        <button className="restartBtn" onClick={restart}>Restart</button>
+        <button className="restartBtn" onClick={() => {
+            restartLogic()
+            setTimeout(() => {restartImgs()}, 800)
+        }}>Restart</button>
         <div className="scoreDiv">Score: {score} &nbsp; &nbsp; &nbsp; BestScore: {bestScore}</div>
         <div className='Mat' style={matStyle}>
             {deck.map((card, index) => {

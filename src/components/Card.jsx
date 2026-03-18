@@ -37,7 +37,7 @@ function Card({ id, name, turned, solved, handleClick }) {
   }
 
   return (
-    <div  className="cardDiv">
+    <div style={turned ? cardStyle : solvedStyle} className="cardDiv">
 
       <div style={solved ? solvedStyle : cardStyle} className={turned ? "innerDiv" : "innerDiv cardTurned"}>
 
