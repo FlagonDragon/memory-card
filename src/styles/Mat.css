@@ -10,9 +10,10 @@
     /* border: 5px solid red; */
 }
 
-/* .Mat div {
-    pointer-events: none;
-} */
+button:hover {
+    box-shadow: 0px 0px 25px white;
+    transform: scale(120%);
+}
 
 .scoreDiv {
     margin: 20px;

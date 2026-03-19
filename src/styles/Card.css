@@ -5,6 +5,10 @@
   margin: 20px;
 }
 
+.cardDiv:hover {
+  box-shadow: 0px 0px 25px white;
+}
+
 .innerDiv {
   position: relative;
   width: 100%;
