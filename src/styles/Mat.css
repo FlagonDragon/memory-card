@@ -2,11 +2,20 @@
     box-sizing: border-box;
 }
 
-.Mat {
+.matDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.field {
     display: flex;
     flex-direction: row;
-    width: 1500px;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
+    width: 2100px;
     /* border: 5px solid red; */
 }
 

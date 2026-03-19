@@ -97,18 +97,18 @@ function Mat() {
     }
 
     return (
-    <>
+    <div className="matDiv"> 
         <button className="restartBtn" onClick={() => {
             restartLogic()
             setTimeout(() => {restartImgs()}, 800)
         }} style={matStyle}>Restart</button>
         <div className="scoreDiv">Score: {score} &nbsp; &nbsp; &nbsp; BestScore: {bestScore}</div>
-        <div className='Mat' style={matStyle}>
+        <div className='field' style={matStyle}>
             {deck.map((card, index) => {
                 return <Card key={index} id={index} name={card.name} turned={card.turned} solved={card.solved} handleClick={handleClick} ></Card>
             })}
         </div>
-    </>
+    </div>
     )
     
 }
