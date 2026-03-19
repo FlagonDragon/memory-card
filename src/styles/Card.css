@@ -1,8 +1,8 @@
 .cardDiv {
-  width: 274.42px;
-  height: 400px;
+  width: 140.44px;
+  height: 200px;
+  margin: 35px;
   perspective: 1000px; 
-  margin: 70px;
 }
 
 .cardDiv:hover {

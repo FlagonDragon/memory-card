@@ -4,7 +4,7 @@ import '../styles/Mat.css'
 import shuffleArray from '../shuffleArray.js'
 
 
-let StartingMatStyle = {border: '5px solid blue'};
+let StartingMatStyle = {border: '5px solid white'};
 
 let StartingDeck = ['Spright%20Blue', 'Spright%20Blue', 'Toon%20Kingdom', 'Toon%20Kingdom', 'Dark%20Magician', 'Dark%20Magician'];
 
@@ -60,7 +60,7 @@ function Mat() {
         }
 
         setMatStyle ({
-            border: '5px solid red',
+            border: '5px solid skyblue',
             pointerEvents: 'none'
         })
 
@@ -70,7 +70,7 @@ function Mat() {
 
     function afterClick(id) {
 
-        setMatStyle ({border: '5px solid blue'})
+        setMatStyle ({border: '5px solid white'})
         
         if (stage == 2) {
 

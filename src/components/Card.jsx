@@ -42,11 +42,11 @@ function Card({ id, name, turned, solved, handleClick }) {
       <div style={solved ? solvedStyle : cardStyle} className={turned ? "innerDiv" : "innerDiv cardTurned"}>
 
         <div className="cardFront">
-          <img src={imgSrc} height='400px' width='274.42px' onClick={onClick}></img>
+          <img src={imgSrc} height='200px' width='140.44px' onClick={onClick}></img>
         </div>
 
         <div className="cardBack">
-          <img src={backSrc} height='400px' width='274.42px' onClick={onClick}></img>
+          <img src={backSrc} height='200px' width='140.44px' onClick={onClick}></img>
         </div>
 
       </div>
