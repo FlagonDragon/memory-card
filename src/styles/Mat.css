@@ -2,6 +2,13 @@
     box-sizing: border-box;
 }
 
+:root {
+  background-image: url(../assets/yugi0.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 .matDiv {
     display: flex;
     flex-direction: column;
