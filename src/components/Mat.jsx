@@ -20,7 +20,7 @@ let backgroundArray = [yugi0, yugi1, yugi2, yugi3, yugi4, yugi5, yugi6, yugi7, y
 let myRoot = document.body
 myRoot.style.backgroundImage = `url(${backgroundArray[myNum()]})`
 
-let StartingMatStyle = {border: '5px solid white'};
+let StartingMatStyle = {};
 
 let StartingDeck = ['Spright%20Blue', 'Spright%20Blue', 'Toon%20Kingdom', 'Toon%20Kingdom', 'Dark%20Magician', 'Dark%20Magician'];
 
@@ -79,7 +79,6 @@ function Mat() {
         }
 
         setMatStyle ({
-            border: '5px solid white',
             pointerEvents: 'none'
         })
 
@@ -89,7 +88,7 @@ function Mat() {
 
     function afterClick(id) {
 
-        setMatStyle ({border: '5px solid white'})
+        setMatStyle ({})
         
         if (stage == 2) {
 
@@ -104,7 +103,7 @@ function Mat() {
                 
                 setDeck(newDeck);
 
-                if (strikes == 40) {
+                if (strikes == 4) {
                     strikes = 0;
                     restartLogic();;
                     setTimeout(() => {restartImgs()}, 800)
