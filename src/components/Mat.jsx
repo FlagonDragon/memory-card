@@ -20,7 +20,6 @@ let backgroundArray = [yugi0, yugi1, yugi2, yugi3, yugi4, yugi5, yugi6, yugi7, y
 let myRoot = document.body
 myRoot.style.backgroundImage = `url(${backgroundArray[myNum()]})`
 
-
 let StartingMatStyle = {border: '5px solid white'};
 
 let StartingDeck = ['Spright%20Blue', 'Spright%20Blue', 'Toon%20Kingdom', 'Toon%20Kingdom', 'Dark%20Magician', 'Dark%20Magician'];
@@ -105,7 +104,7 @@ function Mat() {
                 
                 setDeck(newDeck);
 
-                if (strikes == 4) {
+                if (strikes == 40) {
                     strikes = 0;
                     restartLogic();;
                     setTimeout(() => {restartImgs()}, 800)
@@ -126,6 +125,10 @@ function Mat() {
 
     }
 
+    let gameSolved = false;
+
+    if (score == 10 ) gameSolved = true;    
+
     return (
     <div className="matDiv">    
 
@@ -140,7 +143,7 @@ function Mat() {
 
         <div className='field' style={matStyle}>
             {deck.map((card, index) => {
-                return <Card key={index} id={index} name={card.name} turned={card.turned} solved={card.solved} handleClick={handleClick} ></Card>
+                return <Card key={index} id={index} name={card.name} turned={card.turned} solved={card.solved} gameSolved={gameSolved} handleClick={handleClick}></Card>
             })}
         </div>
 

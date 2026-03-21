@@ -2,7 +2,7 @@ import { useState , useEffect } from "react";
 import backSrc from '../assets/back.jpg';
 import '../styles/Card.css'
 
-function Card({ id, name, turned, solved, handleClick }) {
+function Card({ id, name, turned, solved, gameSolved ,handleClick }) {
   const [imgSrc, setImgSrc] = useState(null);
 
   function onClick() {
@@ -31,13 +31,20 @@ function Card({ id, name, turned, solved, handleClick }) {
 
   }, [name])
 
-  let cardStyle = {}
+  let cardStyle = {
+      // pointerEvents: 'none',
+    mask: 'none',
+    animation: 'none'
+  }
   let solvedStyle = {
     pointerEvents: 'none'
   }
 
   return (
-    <div style={turned ? cardStyle : solvedStyle} className="cardDiv">
+    <div 
+      style={turned ? cardStyle : solvedStyle} 
+      className={gameSolved ? "cardDiv  cardSolved gameSolved" : (solved ?  "cardDiv  cardSolved" : "cardDiv")}
+    >
 
       <div style={solved ? solvedStyle : cardStyle} className={turned ? "innerDiv" : "innerDiv cardTurned"}>
 

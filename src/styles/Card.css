@@ -1,3 +1,9 @@
+/* Shimmer effect by Temani Afif
+https://stackoverflow.com/questions/68216941/how-to-make-a-css-shimmer-effect-on-image */
+
+/* Cardflip effect by W3Schools
+https://www.w3schools.com/howto/howto_css_flip_card.asp */
+
 .cardDiv {
   width: 140.44px;
   height: 200px;
@@ -8,6 +14,22 @@
 .cardDiv:hover {
   box-shadow: 0px 0px 25px white;
   transform: scale(105%);
+}
+
+.cardSolved {
+  opacity: 75%;
+}
+
+.gameSolved {
+  mask: linear-gradient(-60deg, #000 30%, #0005, #000 70%) right/350% 100%;
+  animation: shimmer 2.5s infinite;
+  opacity: 75%;
+}
+
+@keyframes shimmer {
+  100% {
+    mask-position: left
+  }
 }
 
 .innerDiv {
