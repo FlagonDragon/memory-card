@@ -8,7 +8,8 @@ https://www.w3schools.com/howto/howto_css_flip_card.asp */
   width: 140.44px;
   height: 200px;
   margin: 35px;
-  perspective: 1000px; 
+  perspective: 1000px;
+  cursor: pointer;
 }
 
 .cardDiv:hover {

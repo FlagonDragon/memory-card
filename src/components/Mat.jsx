@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Card from './Card.jsx'
+import Audio from "./Audio.jsx"
 import '../styles/Mat.css'
 import shuffleArray from '../shuffleArray.js'
 import yugi0 from '../assets/yugi0.jpg'
@@ -31,6 +32,16 @@ let strikes = 0;
 StartingDeck = [{name: 'Spright%20Blue', turned: true, solved: false}, {name: 'Spright%20Blue', turned: true, solved: false}, {name: 'Toon%20Kingdom', turned: true, solved: false}, {name: 'Toon%20Kingdom', turned: true, solved: false}, {name: 'Gem-Knight%20Master%20Diamond', turned: true, solved: false}, {name: 'Gem-Knight%20Master%20Diamond', turned: true, solved: false}, {name: 'Ukiyoe-P.U.N.K.%20Amazing%20Dragon', turned: true, solved: false}, {name: 'Ukiyoe-P.U.N.K.%20Amazing%20Dragon', turned: true, solved: false}, {name: 'Kashtira%20Arise-Heart', turned: true, solved: false}, {name: 'Kashtira%20Arise-Heart', turned: true, solved: false}, {name: 'Eldlich%20the%20Golden%20Lord', turned: true, solved: false}, {name: 'Eldlich%20the%20Golden%20Lord', turned: true, solved: false}, {name: 'Blue-Eyes%20Chaos%20MAX%20Dragon', turned: true, solved: false}, {name: 'Blue-Eyes%20Chaos%20MAX%20Dragon', turned: true, solved: false}, {name: 'Knightmare%20Unicorn', turned: true, solved: false}, {name: 'Knightmare%20Unicorn', turned: true, solved: false}, {name: 'Infinite%20Impermanence', turned: true, solved: false}, {name: 'Infinite%20Impermanence', turned: true, solved: false}, {name: 'Divine%20Arsenal%20AA-ZEUS%20-%20Sky%20Thunder', turned: true, solved: false}, {name: 'Divine%20Arsenal%20AA-ZEUS%20-%20Sky%20Thunder', turned: true, solved: false}];
 
 shuffleArray(StartingDeck);
+
+
+// let playing = false;
+
+// function playMusic() {
+//     if (playing == false) {
+//         myBGM.play();
+//     }
+//     playing = true;
+// }
 
 function Mat() {
     const [score, setScore] = useState(0);
@@ -65,6 +76,10 @@ function Mat() {
     }
 
     function handleClick(id) {
+
+        const myBGM = document.getElementById('myBGM');
+
+        myBGM.play()
 
         let newDeck = deck.slice();
         newDeck[id].turned = !newDeck[id].turned
@@ -129,7 +144,9 @@ function Mat() {
     if (score == 10 ) gameSolved = true;    
 
     return (
-    <div className="matDiv">    
+    <div className="matDiv">  
+
+        <Audio></Audio>
 
         <div className="header">
             <button className="restartBtn" onClick={() => {

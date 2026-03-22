@@ -18,6 +18,10 @@ body {
     /* width: 100vh; */
 }
 
+#myBGM {
+    display: none;
+}
+
 .header {
     display: flex;
     flex-direction: row;
