@@ -14,7 +14,27 @@ import yugi7 from '../assets/yugi7.jpg'
 import yugi8 from '../assets/yugi8.jpg'
 import yugi9 from '../assets/yugi9.jpg'
 
-const myNum = () => Math.floor(Math.random() * 10);
+let lastNum;
+
+function myNum() {
+
+    try {
+
+        let newNum = Math.floor(Math.random() * 10)
+
+        if (newNum != lastNum) {
+            lastNum = newNum;
+            return newNum;
+        } else {
+            throw Error;
+        }
+    
+    } catch {        
+        return myNum(); 
+    }
+
+};
+
 
 let backgroundArray = [yugi0, yugi1, yugi2, yugi3, yugi4, yugi5, yugi6, yugi7, yugi8, yugi9];
 
