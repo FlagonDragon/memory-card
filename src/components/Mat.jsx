@@ -77,7 +77,7 @@ function Mat() {
         myBGM.volume = 0.1;
         myBGM.play();
 
-        const mySFX = document.getElementById('flipCard1');
+        const mySFX = document.getElementById(stage == 1 ?'flipCard1' : 'flipCard1B');
         mySFX.volume = 0.5;
         mySFX.play();
 
@@ -153,6 +153,7 @@ function Mat() {
         <BGM></BGM>
         <SFX input='shuffleDeck'></SFX>
         <SFX input='flipCard1'></SFX>
+        <SFX input='flipCard1' id='flipCard1B'></SFX>
         <SFX input='flipCard2'></SFX>
 
         <div className="header">

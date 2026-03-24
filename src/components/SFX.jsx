@@ -2,7 +2,7 @@ import shuffleDeck from '../assets/shuffleDeck.mp3'
 import flipCard1 from '../assets/flipCard1.mp3'
 import flipCard2 from '../assets/flipCard2.mp3'
 
-function SFX({ input }) {
+function SFX({ input , id }) {
 
     let sound;
 
@@ -15,7 +15,7 @@ function SFX({ input }) {
     }
 
     return (
-        <audio className="mySFX" id={input}>
+        <audio className="mySFX" id={id ? id : input}>
             <source src={sound} type="audio/mp3" ></source>
         </audio>
     )
