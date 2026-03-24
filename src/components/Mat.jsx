@@ -1,8 +1,10 @@
 import { useState } from "react"
 import Card from './Card.jsx'
-import Audio from "./Audio.jsx"
+import BGM from "./BGM.jsx"
+import SFX from "./SFX.jsx"
 import '../styles/Mat.css'
 import shuffleArray from '../shuffleArray.js'
+import backgroundNum from '../backgroundNum.js'
 import yugi0 from '../assets/yugi0.jpg'
 import yugi1 from '../assets/yugi1.jpg'
 import yugi2 from '../assets/yugi2.jpg'
@@ -14,32 +16,12 @@ import yugi7 from '../assets/yugi7.jpg'
 import yugi8 from '../assets/yugi8.jpg'
 import yugi9 from '../assets/yugi9.jpg'
 
-let lastNum;
-
-function myNum() {
-
-    try {
-
-        let newNum = Math.floor(Math.random() * 10)
-
-        if (newNum != lastNum) {
-            lastNum = newNum;
-            return newNum;
-        } else {
-            throw Error;
-        }
-    
-    } catch {        
-        return myNum(); 
-    }
-
-};
-
-
 let backgroundArray = [yugi0, yugi1, yugi2, yugi3, yugi4, yugi5, yugi6, yugi7, yugi8, yugi9];
 
+let lastNum = backgroundNum();
+
 let myRoot = document.body
-myRoot.style.backgroundImage = `url(${backgroundArray[myNum()]})`
+myRoot.style.backgroundImage = `url(${backgroundArray[lastNum]})`
 
 let StartingMatStyle = {};
 
@@ -52,16 +34,6 @@ let strikes = 0;
 StartingDeck = [{name: 'Spright%20Blue', turned: true, solved: false}, {name: 'Spright%20Blue', turned: true, solved: false}, {name: 'Toon%20Kingdom', turned: true, solved: false}, {name: 'Toon%20Kingdom', turned: true, solved: false}, {name: 'Gem-Knight%20Master%20Diamond', turned: true, solved: false}, {name: 'Gem-Knight%20Master%20Diamond', turned: true, solved: false}, {name: 'Ukiyoe-P.U.N.K.%20Amazing%20Dragon', turned: true, solved: false}, {name: 'Ukiyoe-P.U.N.K.%20Amazing%20Dragon', turned: true, solved: false}, {name: 'Kashtira%20Arise-Heart', turned: true, solved: false}, {name: 'Kashtira%20Arise-Heart', turned: true, solved: false}, {name: 'Eldlich%20the%20Golden%20Lord', turned: true, solved: false}, {name: 'Eldlich%20the%20Golden%20Lord', turned: true, solved: false}, {name: 'Blue-Eyes%20Chaos%20MAX%20Dragon', turned: true, solved: false}, {name: 'Blue-Eyes%20Chaos%20MAX%20Dragon', turned: true, solved: false}, {name: 'Knightmare%20Unicorn', turned: true, solved: false}, {name: 'Knightmare%20Unicorn', turned: true, solved: false}, {name: 'Infinite%20Impermanence', turned: true, solved: false}, {name: 'Infinite%20Impermanence', turned: true, solved: false}, {name: 'Divine%20Arsenal%20AA-ZEUS%20-%20Sky%20Thunder', turned: true, solved: false}, {name: 'Divine%20Arsenal%20AA-ZEUS%20-%20Sky%20Thunder', turned: true, solved: false}];
 
 shuffleArray(StartingDeck);
-
-
-// let playing = false;
-
-// function playMusic() {
-//     if (playing == false) {
-//         myBGM.play();
-//     }
-//     playing = true;
-// }
 
 function Mat() {
     const [score, setScore] = useState(0);
@@ -88,7 +60,8 @@ function Mat() {
     }
 
     function restartImgs() {
-        myRoot.style.backgroundImage = `url(${backgroundArray[myNum()]})`
+        lastNum = backgroundNum(lastNum);
+        myRoot.style.backgroundImage = `url(${backgroundArray[lastNum]})`
 
         let newDeck = deck.slice();
         shuffleArray(newDeck);
@@ -100,6 +73,10 @@ function Mat() {
         const myBGM = document.getElementById('myBGM');
 
         myBGM.play()
+
+        const mySFX = document.getElementById('myBGM');
+
+        mySFX.play()
 
         let newDeck = deck.slice();
         newDeck[id].turned = !newDeck[id].turned
@@ -166,7 +143,10 @@ function Mat() {
     return (
     <div className="matDiv">  
 
-        <Audio></Audio>
+        <BGM></BGM>
+        <SFX input='shuffleDeck'></SFX>
+        <SFX input='flipCard1'></SFX>
+        <SFX input='flipCard2'></SFX>
 
         <div className="header">
             <button className="restartBtn" onClick={() => {

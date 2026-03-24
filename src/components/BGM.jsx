@@ -1,6 +1,6 @@
 import bgm from '../assets/passionateDuelist.mp3'
 
-function Audio() {
+function BGM() {
 
     return (
         <audio loop id="myBGM">
@@ -10,4 +10,4 @@ function Audio() {
 
 }
 
-export default Audio;
+export default BGM;

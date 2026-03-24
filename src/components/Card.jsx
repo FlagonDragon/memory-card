@@ -7,7 +7,6 @@ function Card({ id, name, turned, solved, gameSolved ,handleClick }) {
 
   function onClick() {
     handleClick(id)
-    console.log(id);
   }
 
   useEffect(() => {
