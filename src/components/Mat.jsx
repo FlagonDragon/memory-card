@@ -56,7 +56,6 @@ function Mat() {
             card.turned = true;
             card.solved = false;
         });
-        // shuffleArray(newDeck);
 
         setScore(0);
         setDeck(newDeck);
@@ -74,12 +73,12 @@ function Mat() {
 
     function handleClick(id) {
 
-        // const myBGM = document.getElementById('myBGM');
-
-        // myBGM.play()
+        const myBGM = document.getElementById('myBGM');
+        myBGM.volume = 0.1;
+        myBGM.play();
 
         const mySFX = document.getElementById('flipCard1');
-
+        mySFX.volume = 0.5;
         mySFX.play();
 
         let newDeck = deck.slice();
@@ -104,10 +103,6 @@ function Mat() {
 
     function afterClick(id) {
 
-        const mySFX = document.getElementById('flipCard2');
-
-        mySFX.play();
-
         setMatStyle ({})
         
         if (stage == 2) {
@@ -125,9 +120,13 @@ function Mat() {
 
                 if (strikes == 4) {
                     strikes = 0;
-                    restartLogic();;
-                    setTimeout(() => {restartImgs()}, 800)
+                    restartLogic();
+                    setTimeout(() => {restartImgs()}, 200)
                 }
+
+                const mySFX = document.getElementById('flipCard2');
+                mySFX.volume = 0.55;
+                mySFX.play();
 
             } else {
                 strikes = 0;

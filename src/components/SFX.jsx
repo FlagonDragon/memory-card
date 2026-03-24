@@ -15,7 +15,7 @@ function SFX({ input }) {
     }
 
     return (
-        <audio controls className="mySFX" id={input}>
+        <audio className="mySFX" id={input}>
             <source src={sound} type="audio/mp3" ></source>
         </audio>
     )
