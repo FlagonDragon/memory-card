@@ -45,6 +45,10 @@ function Mat() {
 
     function restartLogic() {
 
+        const mySFX = document.getElementById('shuffleDeck');
+
+        mySFX.play();
+
         stage = 1;
 
         let newDeck = deck.slice();
@@ -70,13 +74,13 @@ function Mat() {
 
     function handleClick(id) {
 
-        const myBGM = document.getElementById('myBGM');
+        // const myBGM = document.getElementById('myBGM');
 
-        myBGM.play()
+        // myBGM.play()
 
-        const mySFX = document.getElementById('myBGM');
+        const mySFX = document.getElementById('flipCard1');
 
-        mySFX.play()
+        mySFX.play();
 
         let newDeck = deck.slice();
         newDeck[id].turned = !newDeck[id].turned
@@ -99,6 +103,10 @@ function Mat() {
     }
 
     function afterClick(id) {
+
+        const mySFX = document.getElementById('flipCard2');
+
+        mySFX.play();
 
         setMatStyle ({})
         
