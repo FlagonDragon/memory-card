@@ -151,7 +151,7 @@ function Mat() {
         <div className="header">
             <button className="restartBtn" onClick={() => {
                 restartLogic()
-                setTimeout(() => {restartImgs()}, 800)
+                setTimeout(() => {restartImgs()}, 200)
             }} style={matStyle}>Restart</button>
             <p className="scoreP">Score: {score}</p>
             <p className="scoreP">BestScore: {bestScore}</p>
